@@ -7,7 +7,6 @@
 
 #endif //EXTRACTFEATURES_NOSLIDING_WINDOW_OSNT_UDPOUTPUTSOURCE_H
 
-#  include "OutputSource.h"
 #include "ExportDestination.h"
 
 namespace libfc {

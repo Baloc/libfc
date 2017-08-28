@@ -51,7 +51,7 @@ namespace libfc {
         msg.msg_iov = (iovec *) iovecs.data();
         msg.msg_iovlen = static_cast<int>(iovecs.size());
 
-        sendmsg(fd, &mg, 0);
+        sendmsg(fd, &msg, 0);
         return NULL;
         //return ::writev(fd, iovecs.data(), static_cast<int>(iovecs.size()));
     }
