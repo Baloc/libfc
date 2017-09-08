@@ -17,6 +17,7 @@
 #  define LOG4CPLUS_TRACE(logger, expr)
 #endif /* defined(_LIBFC_HAVE_LOG4CPLUS_) */
 
+
 namespace libfc {
 
     UDPExportDestination::UDPExportDestination( const struct  sockaddr * _sa, size_t _sa_len, int _fd)
@@ -46,14 +47,11 @@ namespace libfc {
     }
     LOG4CPLUS_TRACE(logger, "total=" << total);
 #endif /*  defined(_LIBFC_HAVE_LOG4CPLUS_) */
-        // create message header
 
         msg.msg_iov = (iovec *) iovecs.data();
         msg.msg_iovlen = static_cast<int>(iovecs.size());
 
-        sendmsg(fd, &msg, 0);
-        return NULL;
-        //return ::writev(fd, iovecs.data(), static_cast<int>(iovecs.size()));
+        return sendmsg(fd, &msg, 0);
     }
 
     int UDPExportDestination::flush() {
@@ -64,7 +62,7 @@ namespace libfc {
     }
 
     size_t UDPExportDestination::preferred_maximum_message_size() const {
-        return kMaxMessageLen;
+        return kMaxMessageUDPLen;
     }
 
 }

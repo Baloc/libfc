@@ -8,6 +8,7 @@
 #endif //EXTRACTFEATURES_NOSLIDING_WINDOW_OSNT_UDPOUTPUTSOURCE_H
 
 #include "ExportDestination.h"
+#define kMaxMessageUDPLen 508
 
 namespace libfc {
 
